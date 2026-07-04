@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark-ai">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Abdelwahab Gharib — AI Data Specialist, LLM Evaluation Expert, Prompt Engineer & QA Reviewer." />
+  <title>Abdelwahab Gharib | AI Data Specialist Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+    /* Theme Definitions via CSS Variables */
+    :root[data-theme="dark-ai"] {
+      --bg: #030305;
+      --surface: rgba(13, 13, 22, 0.7);
+      --surface-hover: rgba(20, 20, 35, 0.8.5);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(6, 182, 212, 0.4);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #06b6d4;
+      --accent-grad: linear-gradient(135deg, #06b6d4 0%, #7c3aed 100%);
+      --glow: rgba(6, 182, 212, 0.15);
+    }
+
+    :root[data-theme="white-minimal"] {
+      --bg: #f8fafc;
+      --surface: rgba(255, 255, 255, 0.9);
+      --surface-hover: #ffffff;
+      --border: rgba(0, 0, 0, 0.08);
+      --border-hover: rgba(15, 23, 42, 0.6);
+      --text: #0f172a;
+      --muted: #64748b;
+      --accent: #0f172a;
+      --accent-grad: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+      --glow: rgba(15, 23, 42, 0.05);
+    }
+
+    :root[data-theme="neon-cyberpunk"] {
+      --bg: #000000;
+      --surface: rgba(10, 5, 20, 0.8);
+      --surface-hover: rgba(20, 10, 40, 0.9);
+      --border: #ff007f;
+      --border-hover: #00ffff;
+      --text: #00ffff;
+      --muted: #ff007f;
+      --accent: #ff007f;
+      --accent-grad: linear-gradient(135deg, #ff007f 0%, #00ffff 100%);
+      --glow: rgba(0, 255, 255, 0.3);
+    }
+
+    :root[data-theme="deep-ocean"] {
+      --bg: #020c1b;
+      --surface: rgba(10, 25, 47, 0.7);
+      --surface-hover: rgba(17, 34, 64, 0.85);
+      --border: rgba(100, 255, 218, 0.1);
+      --border-hover: rgba(100, 255, 218, 0.5);
+      --text: #e6f1ff;
+      --muted: #8892b0;
+      --accent: #64ffda;
+      --accent-grad: linear-gradient(135deg, #64ffda 0%, #0072ff 100%);
+      --glow: rgba(100, 255, 218, 0.2);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Theme Switcher Bar */
+    .theme-bar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .theme-container { display: flex; justify-content: space-between; align-items: center; }
+    .brand-logo { font-size: 1.3rem; font-weight: 800; text-decoration: none; color: var(--text); letter-spacing: -0.5px; }
+    .brand-logo span { background: var(--accent-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    
+    .theme-buttons { display: flex; gap: 8px; }
+    .theme-btn {
+      background: transparent; border: 1px solid var(--border); color: var(--text);
+      padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .theme-btn:hover, .theme-btn.active {
+      background: var(--text); color: var(--bg); border-color: var(--text);
+    }
+
+    /* Navigation Menu Links */
+    .nav-links { display: flex; gap: 24px; list-style: none; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+
+    /* Animated Sweeping Light Beam Effects */
+    .shimmer-text {
+      background: linear-gradient(to right, var(--text) 20%, var(--accent) 40%, var(--accent) 60%, var(--text) 80%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 4s linear infinite;
+    }
+    @keyframes shine {
+      to { background-position: 200% center; }
+    }
+
+    /* Hero Section Layout */
+    .hero { padding: 120px 0 80px; text-align: center; position: relative; }
+    .badge {
+      display: inline-block; padding: 6px 16px; border-radius: 30px; background: var(--surface);
+      border: 1px solid var(--border); color: var(--text); font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px;
+      box-shadow: 0 0 20px var(--glow);
+    }
+    .hero h1 { font-size: clamp(2.2rem, 6vw, 4.2rem); font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 20px; }
+    .hero p { color: var(--muted); font-size: 1.15rem; max-width: 760px; margin: 0 auto 40px; }
+    
+    .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 60px; }
+    .metric-card {
+      background: var(--surface); border: 1px solid var(--border); padding: 24px; border-radius: var(--radius2);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease;
+    }
+    .metric-card:hover { transform: translateY(-4px); border-color: var(--border-hover); }
+    .metric-card h3 { font-size: 2.2rem; font-weight: 800; margin-bottom: 4px; }
+    .metric-card p { color: var(--muted); font-size: 0.9rem; font-weight: 600; }
+
+    /* Content Layout Structure */
+    section { padding: 80px 0; border-top: 1px solid var(--border); }
+    .section-title { font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
+    .section-subtitle { color: var(--muted); font-size: 1.05rem; margin-bottom: 48px; }
+
+    /* Clickable Large Company Timeline Structure */
+    .experience-grid { display: flex; flex-direction: column; gap: 24px; }
+    .experience-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 32px; display: grid; grid-template-columns: 280px 1fr; gap: 32px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative;
+    }
+    .experience-card:hover {
+      transform: translateY(-4px); border-color: var(--border-hover);
+      box-shadow: 0 15px 35px var(--glow);
+    }
+    .company-title {
+      font-size: 1.6rem; font-weight: 800; color: var(--text); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s;
+    }
+    .company-title:hover { color: var(--accent); text-decoration: underline; }
+    .company-title svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.5; }
+    
+    .role-title { font-weight: 700; color: var(--text); margin-top: 6px; font-size: 1.1rem; }
+    .time-meta { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
+
+    .bullet-list { list-style: none; }
+    .bullet-list li { position: relative; padding-left: 24px; color: var(--text); margin-bottom: 10px; font-size: 1.02rem; }
+    .bullet-list li::before {
+      content: '✦'; position: absolute; left: 0; top: 0; color: var(--accent); font-size: 0.8rem;
+    }
+
+    /* Skills Grid Layout */
+    .skills-wrapper { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .skill-box { background: var(--surface); border: 1px solid var(--border); padding: 32px; border-radius: var(--radius2); }
+    .skill-box h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; color: var(--text); }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      background: rgba(255,255,255,0.03); border: 1px solid var(--border); color: var(--text);
+      padding: 8px 14px; border-radius: 30px; font-size: 0.88rem; font-weight: 500; transition: all 0.2s;
+    }
+    .tag:hover { border-color: var(--accent); background: var(--glow); }
+
+    /* Projects Cards Grid */
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .project-card {
+      background: var(--surface); border: 1px solid var(--border); padding: 32px; border-radius: var(--radius2);
+      display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s;
+    }
+    .project-card:hover { transform: translateY(-4px); border-color: var(--border-hover); }
+    .project-card h4 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
+    .project-card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 20px; }
+
+    /* Certifications Grid */
+    .certs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .cert-card {
+      background: var(--surface); border: 1px solid var(--border); padding: 20px; border-radius: 14px;
+      transition: all 0.2s;
+    }
+    .cert-card:hover { border-color: var(--accent); }
+    .cert-card strong { display: block; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; color: var(--text); }
+    .cert-card span { color: var(--muted); font-size: 0.85rem; }
+
+    /* Clean Info Contact Cards (No Input Form Submissions Fields) */
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 20px; }
+    .info-card {
+      background: var(--surface); border: 1px solid var(--border); padding: 24px; border-radius: var(--radius2);
+      text-decoration: none; color: var(--text); display: flex; flex-direction: column; gap: 8px;
+      transition: all 0.3s ease; position: relative;
+    }
+    .info-card:hover {
+      transform: translateY(-4px); border-color: var(--border-hover); box-shadow: 0 10px 25px var(--glow);
+    }
+    .info-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 700; }
+    .info-value { font-size: 1.1rem; font-weight: 700; word-break: break-all; }
+
+    footer { padding: 40px 0; text-align: center; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
+
+    /* Responsive Queries */
+    @media (max-width: 1024px) {
+      .experience-card { grid-template-columns: 1fr; gap: 16px; }
+      .skills-wrapper, .projects-grid { grid-template-columns: 1fr; }
+      .certs-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .theme-container { flex-direction: column; gap: 16px; text-align: center; }
+      .nav-links { display: none; }
+      .metrics { grid-template-columns: 1fr 1fr; }
+      .certs-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dynamic Theme Toolbar Header -->
+  <header class="theme-bar">
+    <div class="container theme-container">
+      <a href="#" class="brand-logo">AG<span>.AI</span></a>
+      <ul class="nav-links">
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="theme-buttons">
+        <button class="theme-btn active" onclick="setTheme('dark-ai', this)">Dark AI</button>
+        <button class="theme-btn" onclick="setTheme('white-minimal', this)">White Minimal</button>
+        <button class="theme-btn" onclick="setTheme('neon-cyberpunk', this)">Neon Cyberpunk</button>
+        <button class="theme-btn" onclick="setTheme('deep-ocean', this)">Deep Ocean</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Frame -->
+  <main class="container">
+    <section class="hero">
+      <div class="badge">Available for Elite AI Opportunities</div>
+      <h1 class="shimmer-text">Abdelwahab Gharib</h1>
+      <p style="font-weight: 700; color: var(--text); margin-top: -10px; margin-bottom: 20px; font-size: 1.3rem;">
+        AI Data Specialist | LLM Evaluation Expert | Prompt Engineer & QA Reviewer
+      </p>
+      <p>Professional AI Data Specialist, Prompt Engineer, and Reviewer with a proven track record of optimizing Transformer models, conducting RLHF, and implementing cutting-edge LLM evaluation loops for global tech leaders.</p>
+      
+      <div class="metrics">
+        <div class="metric-card">
+          <h3>7+</h3>
+          <p>Global AI Platforms</p>
+        </div>
+        <div class="metric-card">
+          <h3>99%</h3>
+          <p>Annotation Accuracy</p>
+        </div>
+        <div class="metric-card">
+          <h3>1,200+</h3>
+          <p>Side-by-Side Appraisals</p>
+        </div>
+        <div class="metric-card">
+          <h3>4+ Years</h3>
+          <p>Tech & AI Operations</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clickable Company Experience Timeline (No shortcuts like TU or RW) -->
+    <section id="experience">
+      <h2 class="section-title">Professional Experience</h2>
+      <p class="section-subtitle">Click on any company name to visit their official corporate website layout platform.</p>
+      
+      <div class="experience-grid">
+        
+        <!-- Turing -->
+        <article class="experience-card">
+          <div class="timeline-meta">
+            <a href="https://www.turing.com" target="_blank" rel="noopener noreferrer" class="company-title">
+              Turing
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <div class="role-title">AI Data Annotator & AI Trainer</div>
+            <div class="time-meta">Feb 2026 – Present • Remote</div>
+          </div>
+          <div class="timeline-body">
+            <ul class="bullet-list">
+              <li>Evaluate generative text, complex software logic, and instruction-following parameters.</li>
+              <li>Audit sophisticated engineering responses, streamlining adversarial prompting benchmarks and safety guardrails.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- TELUS Digital -->
+        <article class="experience-card">
+          <div class="timeline-meta">
+            <a href="https://www.telusinternational.com" target="_blank" rel="noopener noreferrer" class="company-title">
+              TELUS Digital
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <div class="role-title">AI Data Annotation Specialist</div>
+            <div class="time-meta">Sep 2025 – Present • Remote</div>
+          </div>
+          <div class="timeline-body">
+            <ul class="bullet-list">
+              <li>Manage complex data labeling workflows for machine learning production pipelines, sustaining a 99% baseline accuracy rate across 500+ micro-tasks weekly.</li>
+              <li>Execute systematic Quality Assurance checks on multi-turn conversational agents, curtailing model hallucination indices by 15%.</li>
+              <li>Utilize proprietary advanced systems (Multimango and Parimango) to execute high-fidelity semantic and sentiment labeling.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- RWS Group -->
+        <article class="experience-card">
+          <div class="timeline-meta">
+            <a href="https://www.rws.com" target="_blank" rel="noopener noreferrer" class="company-link company-title">
+              RWS Group (TrainAI)
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <div class="role-title">Search Quality Rater (RaterHub) & AI Evaluator</div>
+            <div class="time-meta">Jan 2025 – Jan 2026 • Remote</div>
+          </div>
+          <div class="timeline-body">
+            <ul class="bullet-list">
+              <li>Orchestrated 1,200+ Side-by-Side (SbS) structural model assessments via RaterHub to elevate web search relevance algorithms and linguistic precision.</li>
+              <li>Applied specialized linguistic engineering protocols for Arabic NLP dialects, upgrading multi-turn reasoning and context accuracy metrics by 20%.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Outlier AI -->
+        <article class="experience-card">
+          <div class="timeline-meta">
+            <a href="https://outlier.ai" target="_blank" rel="noopener noreferrer" class="company-title">
+              Outlier AI
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <div class="role-title">AI Trainer & Prompt Engineering Expert</div>
+            <div class="time-meta">Aug 2024 – 2025 • Remote</div>
+          </div>
+          <div class="timeline-body">
+            <ul class="bullet-list">
+              <li>Designed 50+ adversarial multi-step prompts to stress-test LLM alignment logic, boosting instruction-following fidelity.</li>
+              <li>Documented, classified, and corrected 200+ edge-case logical hallucinations to feedback directly into RLHF alignment loops.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Uber -->
+        <article class="experience-card">
+          <div class="timeline-meta">
+            <a href="https://www.uber.com" target="_blank" rel="noopener noreferrer" class="company-title">
+              Uber
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <div class="role-title">AI Data Annotator / Data Labeling Specialist</div>
+            <div class="time-meta">Mar 2026 – Present • Remote</div>
+          </div>
+          <div class="timeline-body">
+            <ul class="bullet-list">
+              <li>Conduct high-quality geospatial and behavioral dataset labeling for routing and optimization models.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Welo Data -->
+        <article class="experience-card">
+          <div class="timeline-meta">
+            <a href="https://www.welocalize.com" target="_blank" rel="noopener noreferrer" class="company-title">
+              Welo Data (Welocalize)
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <div class="role-title">Arabic Language & Culture Expert (AI Data Specialist)</div>
+            <div class="time-meta">Apr 2026 – Present • Remote</div>
+          </div>
+          <div class="timeline-body">
+            <ul class="bullet-list">
+              <li>Review response comparisons and fine-tune linguistic parameters to handle regional Arabic context variations.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- OneForma -->
+        <article class="experience-card">
+          <div class="timeline-meta">
+            <a href="https://www.oneforma.com" target="_blank" rel="noopener noreferrer" class="company-title">
+              OneForma
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <div class="role-title">AI Data Annotator / Internet Judge</div>
+            <div class="time-meta">Jan 2026 – Present • Remote</div>
+          </div>
+          <div class="timeline-body">
+            <ul class="bullet-list">
+              <li>Judge search indexing patterns, user query alignment, and media metadata accuracy.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Digital Egypt Pioneers Initiative -->
+        <article class="experience-card">
+          <div class="timeline-meta">
+            <a href="https://depi.gov.eg" target="_blank" rel="noopener noreferrer" class="company-title">
+              Digital Egypt Pioneers Initiative (DEPI)
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <div class="role-title">Digital Marketing Trainee</div>
+            <div class="time-meta">Nov 2025 – Present • Remote</div>
+          </div>
+          <div class="timeline-body">
+            <ul class="bullet-list">
+              <li>Integrate predictive marketing models to optimize multi-channel performance and targeted demographics ROI.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Sprints -->
+        <article class="experience-card">
+          <div class="timeline-meta">
+            <a href="https://sprints.ai/en-eg" target="_blank" rel="noopener noreferrer" class="company-title">
+              Sprints
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <div class="role-title">Brand Ambassador & AI Content Reviewer</div>
+            <div class="time-meta">Dec 2025 – Present • Remote</div>
+          </div>
+          <div class="timeline-body">
+            <ul class="bullet-list">
+              <li>Advocate for advanced tech education and review structured technical assets for AI workflows.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Extern -->
+        <article class="experience-card">
+          <div class="timeline-meta">
+            <a href="https://www.extern.com" target="_blank" rel="noopener noreferrer" class="company-title">
+              Extern
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <div class="role-title">Ambassador (Contract)</div>
+            <div class="time-meta">2024 – Present • Global / Remote</div>
+          </div>
+          <div class="timeline-body">
+            <ul class="bullet-list">
+              <li>Promote learning and community opportunities across the platform ecosystem globally.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Skills Core Grid Matrix -->
+    <section id="skills">
+      <h2 class="section-title">Technical Skill Matrix</h2>
+      <p class="section-subtitle">Core engineering disciplines and frameworks structured for scalability.</p>
+      <div class="skills-wrapper">
+        <div class="skill-box">
+          <h4>AI & ML Operations</h4>
+          <div class="tags">
+            <span class="tag">RLHF Training</span><span class="tag">LLM Evaluation</span>
+            <span class="tag">Fine-Tuning Feedback</span><span class="tag">Hallucination Auditing</span>
+            <span class="tag">Multi-modal Annotation</span><span class="tag">Semantic Analysis</span>
+            <span class="tag">NLP (Fusha vs Ammiyya)</span>
+          </div>
+        </div>
+        <div class="skill-box">
+          <h4>Prompt Engineering</h4>
+          <div class="tags">
+            <span class="tag">Chain-of-Thought (CoT)</span><span class="tag">Few-Shot Prompting</span>
+            <span class="tag">Adversarial Stress Testing</span><span class="tag">Instruction Tuning</span>
+            <span class="tag">System Prompt Optimization</span>
+          </div>
+        </div>
+        <div class="skill-box">
+          <h4>Programming & Tools</h4>
+          <div class="tags">
+            <span class="tag">Python (Pandas, NumPy, Scikit-Learn)</span>
+            <span class="tag">SQL & NoSQL</span><span class="tag">RaterHub</span>
+            <span class="tag">Multimango / Parimango</span><span class="tag">Git / GitHub</span>
+            <span class="tag">Selenium & Web Scraping</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engineering Projects -->
+    <section id="projects">
+      <h2 class="section-title">Key AI Engineering Projects</h2>
+      <p class="section-subtitle">Selected code frameworks crafted for correctness auditing and computational efficiency.</p>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div>
+            <h4>Generative AI Evaluation Framework</h4>
+            <p>Engineered an automated response-auditing framework in Python, effectively accelerating core evaluation data loops by 40%.</p>
+          </div>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Automated Testing</span></div>
+        </div>
+        <div class="project-card">
+          <div>
+            <h4>Arabic NLP Dialect Classification</h4>
+            <p>Developed an NLP classification architecture utilizing NLTK to categorize four primary Arabic dialects, remarkably optimizing localization quality scores.</p>
+          </div>
+          <div class="tags"><span class="tag">NLTK</span><span class="tag">Machine Learning</span></div>
+        </div>
+        <div class="project-card">
+          <div>
+            <h4>Legal Data Analysis with AI</h4>
+            <p>Built custom NLP classifiers achieving 92% metric precision for categorizing and structuring dense legal contracts.</p>
+          </div>
+          <div class="tags"><span class="tag">Python</span><span class="tag">NLP</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications List Framework -->
+    <section id="certifications">
+      <h2 class="section-title">Elite Credentials & Certifications</h2>
+      <p class="section-subtitle">Verified institutional tokens of completion.</p>
+      <div class="certs-grid">
+        <div class="cert-card"><strong>Linguistic AI Certification Training</strong><span>RWS Group · 07 May 2026</span></div>
+        <div class="cert-card"><strong>Machine Learning with Python</strong><span>IBM</span></div>
+        <div class="cert-card"><strong>HCIA-AI V3.5 (AI Specialist)</strong><span>Huawei</span></div>
+        <div class="cert-card"><strong>Introducing Generative AI with AWS</strong><span>Udacity</span></div>
+        <div class="cert-card"><strong>Career Essentials in Generative AI</strong><span>Microsoft & LinkedIn</span></div>
+        <div class="cert-card"><strong>Forward Leadership Program</strong><span>McKinsey</span></div>
+        <div class="cert-card"><strong>Fundamentals of Digital Marketing</strong><span>Google</span></div>
+        <div class="cert-card"><strong>AI Career Essentials</strong><span>ALX</span></div>
+      </div>
+    </section>
+
+    <!-- Contact Details Frame Grid (No Input Textbox Forms Fields) -->
+    <section id="contact">
+      <h2 class="section-title">Contact Channels</h2>
+      <p class="section-subtitle">Direct connections. No hidden submission form buffers required.</p>
+      
+      <div class="contact-grid">
+        <a href="mailto:abdogarep64@gmail.com" class="info-card">
+          <span class="info-label">Email</span>
+          <span class="info-value">abdogarep64@gmail.com</span>
+        </a>
+        
+        <a href="tel:+201033629563" class="info-card">
+          <span class="info-label">Phone</span>
+          <span class="info-value">+20 103 362 9563</span>
+        </a>
+
+        <a href="https://linkedin.com/in/abdelwahab-gharib/" target="_blank" rel="noopener noreferrer" class="info-card">
+          <span class="info-label">LinkedIn</span>
+          <span class="info-value">Connect on LinkedIn</span>
+        </a>
+
+        <a href="https://www.facebook.com/abdomahmoud.gharib.1/" target="_blank" rel="noopener noreferrer" class="info-card">
+          <span class="info-label">Facebook</span>
+          <span class="info-value">Connect on Facebook</span>
+        </a>
+
+        <a href="https://drive.google.com/file/d/1n-ARZVYHiIzfpJcgOXt4FKqo0GlxVSLz/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="info-card">
+          <span class="info-label">CV</span>
+          <span class="info-value">Download CV File</span>
+        </a>
+
+        <a href="https://www.paypal.com/paypalme/AbdelwahabGharib?v=1&utm_source=unp&utm_medium=email&utm_campaign=RT000481&utm_unptid=4313ea21-819a-11ef-b711-05064ed74733&ppid=RT000481&cnac=EG&rsta=ar_EG%28ar-EG%29&cust=8D9HXPW52X9BA&unptid=4313ea21-819a-11ef-b711-05064ed74733&calc=9662c02b2de93&unp_tpcid=ppme-social-business-profile-created&page=main:email:RT000481&pgrp=main:email&e=cl&mchn=em&s=ci&mail=sys&appVersion=1.283.0&tenant_name=PAYPAL&xt=145585,104038&link_ref=paypalme_abdelwahabgharib" target="_blank" rel="noopener noreferrer" class="info-card">
+          <span class="info-label">Support</span>
+          <span class="info-value">Financial Support via PayPal</span>
+        </a>
+
+        <a href="https://funny-chaja-e5bd1b.netlify.app/" target="_blank" rel="noopener noreferrer" class="info-card">
+          <span class="info-label">Public Portfolio Backup</span>
+          <span class="info-value">View Secondary Framework</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer Area -->
+    <footer>
+      <p>&copy; 2026 Abdelwahab Gharib. All rights reserved. Built for AI Infrastructure, Evaluation & Scalable Data Operations.</p>
+    </footer>
+  </main>
+
+  <!-- Script for Live Dynamic Switching -->
+  <script>
+    function setTheme(themeName, btnElement) {
+      document.documentElement.setAttribute('data-theme', themeName);
+      
+      // Toggle button states
+      const buttons = document.querySelectorAll('.theme-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      btnElement.classList.add('active');
+    }
+  </script>
+</body>
+</html>
